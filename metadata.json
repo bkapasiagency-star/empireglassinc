@@ -1,0 +1,6 @@
+{
+  "name": "Empire Glass Inc. | Architectural Glass Fabrication & Installation",
+  "description": "Professional commercial and residential glass fabrication and installation in Greensboro, NC. Curtain walls, storefronts, custom shower enclosures, and architectural glazing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
