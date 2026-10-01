@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { COMPANY_INFO } from '../data/company';
+import { QUOTE_SERVICE_OPTIONS, sectorForService } from '../data/services';
 import { Phone, Send, CheckCircle, MapPin, Clock, Paperclip } from 'lucide-react';
 import { ArchitecturalImage } from './ArchitecturalImage';
 
@@ -23,7 +24,7 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ initialService, init
     company: '',
     phone: '',
     email: '',
-    serviceNeeded: initialService || initialDetails?.service || 'Curtain Wall Systems',
+    serviceNeeded: initialService || initialDetails?.service || 'Curtain Walls',
     projectLocation: '',
     projectDetails: initialDetails 
       ? `Configured Scope:\n- System: ${initialDetails.service}\n- Scale: ${initialDetails.scopeSize}\n- Timeline: ${initialDetails.timeline}\n- Spec: ${initialDetails.glassType}`
@@ -39,6 +40,8 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ initialService, init
   React.useEffect(() => {
     if (initialService) {
       setFormData(prev => ({ ...prev, serviceNeeded: initialService }));
+      const sector = sectorForService(initialService);
+      if (sector) setProjectType(sector);
     }
   }, [initialService]);
 
@@ -53,21 +56,11 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ initialService, init
     }
   }, [initialDetails]);
 
-  const commercialServices = [
-    'Curtain Wall Systems',
-    'Storefront Systems',
-    'Unitized Curtain Wall',
-    'Window Wall Systems',
-    'Radius / Curved Walls',
-    'ACM Panels & Cladding'
-  ];
-
-  const residentialServices = [
-    'Frameless Shower Enclosures',
-    'Architectural Windows & Doors',
-    'Fixed & Retractable Skylights',
-    'Custom Mirrors & Glass Railings'
-  ];
+  // The current value is kept selectable even when it is not a catalogue item (e.g. a portfolio project title)
+  const baseServices = QUOTE_SERVICE_OPTIONS[projectType];
+  const serviceOptions = baseServices.includes(formData.serviceNeeded)
+    ? baseServices
+    : [formData.serviceNeeded, ...baseServices];
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
@@ -111,7 +104,7 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ initialService, init
 
   return (
     <section id="contact" className="py-24 section-clear text-[#111315] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-reveal>
         
         {/* Closing Banner / Pre-Form Statement (Deep Charcoal Dark Section) */}
         <div className="relative rounded-2xl overflow-hidden mb-16 border border-[#DDE2E4]/20 shadow-2xl bg-[#111315]">
@@ -251,7 +244,7 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ initialService, init
                           company: '',
                           phone: '',
                           email: '',
-                          serviceNeeded: 'Curtain Wall Systems',
+                          serviceNeeded: 'Curtain Walls',
                           projectLocation: '',
                           projectDetails: '',
                           fileName: ''
@@ -285,7 +278,7 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ initialService, init
                         type="button"
                         onClick={() => {
                           setProjectType('commercial');
-                          setFormData(prev => ({ ...prev, serviceNeeded: commercialServices[0] }));
+                          setFormData(prev => ({ ...prev, serviceNeeded: QUOTE_SERVICE_OPTIONS.commercial[0] }));
                         }}
                         className={`py-2.5 px-3 rounded-lg text-xs font-bold tracking-wide uppercase transition-all cursor-pointer border ${
                           projectType === 'commercial'
@@ -299,7 +292,7 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ initialService, init
                         type="button"
                         onClick={() => {
                           setProjectType('residential');
-                          setFormData(prev => ({ ...prev, serviceNeeded: residentialServices[0] }));
+                          setFormData(prev => ({ ...prev, serviceNeeded: QUOTE_SERVICE_OPTIONS.residential[0] }));
                         }}
                         className={`py-2.5 px-3 rounded-lg text-xs font-bold tracking-wide uppercase transition-all cursor-pointer border ${
                           projectType === 'residential'
@@ -395,7 +388,7 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ initialService, init
                         onChange={(e) => setFormData({ ...formData, serviceNeeded: e.target.value })}
                         className="w-full bg-[#FFFFFF] border border-[#DDE2E4] rounded-lg px-3.5 py-2.5 text-xs text-[#111315] focus:outline-none focus:border-[#527187] transition-colors"
                       >
-                        {(projectType === 'commercial' ? commercialServices : residentialServices).map((s) => (
+                        {serviceOptions.map((s) => (
                           <option key={s} value={s}>{s}</option>
                         ))}
                       </select>

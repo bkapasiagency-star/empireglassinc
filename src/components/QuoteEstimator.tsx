@@ -51,7 +51,7 @@ export const QuoteEstimator: React.FC<QuoteEstimatorProps> = ({ onSelectScope })
 
   return (
     <section className="py-20 section-glass text-[#111315] relative border-b border-[#DDE2E4]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-reveal>
         
         {/* Main Pure White Card Container */}
         <div className="bg-[#FFFFFF] rounded-2xl p-6 sm:p-10 md:p-12 border border-[#DDE2E4] relative overflow-hidden shadow-md">

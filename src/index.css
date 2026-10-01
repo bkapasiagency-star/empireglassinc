@@ -215,3 +215,149 @@
   border-color: rgba(141, 179, 204, 0.6);
   transform: translateY(-2px);
 }
+
+/* ------------------------------------------------------------------
+   Motion. Everything below is transform/opacity only and is switched
+   off under prefers-reduced-motion (static end state is shown instead).
+   ------------------------------------------------------------------ */
+
+/* Hero 3D glazing stack: an aluminum frame and two glass lites in perspective.
+   --hero-mx / --hero-my (pointer, -1..1) and --hero-p (scroll, 0..1) are set from Hero.tsx. */
+.hero-3d {
+  position: absolute;
+  z-index: 5;
+  top: 44%;
+  right: 8%;
+  width: 290px;
+  height: 410px;
+  margin-top: -205px;
+  perspective: 1500px;
+  pointer-events: none;
+}
+
+@media (min-width: 1280px) {
+  .hero-3d {
+    right: 10%;
+    width: 330px;
+    height: 460px;
+    margin-top: -230px;
+  }
+}
+
+.hero-3d__float,
+.hero-3d__rig,
+.hero-3d__layer {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+.hero-3d__rig {
+  transform:
+    rotateX(calc(9deg - var(--hero-my, 0) * 7deg))
+    rotateY(calc(-32deg + var(--hero-mx, 0) * 12deg - var(--hero-p, 0) * 20deg));
+}
+
+.hero-3d__layer {
+  transform: translateZ(calc(var(--z) * (1 + var(--hero-p, 0) * 1.8)));
+}
+
+.hero-3d__pane {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.hero-3d__pane--frame {
+  border: 8px solid #C9D1D6;
+  background:
+    linear-gradient(#C9D1D6, #C9D1D6) center / 6px 100% no-repeat,
+    linear-gradient(#C9D1D6, #C9D1D6) 0 36% / 100% 6px no-repeat;
+  box-shadow:
+    inset 0 0 0 1px rgba(17, 19, 21, 0.35),
+    0 40px 70px -30px rgba(0, 0, 0, 0.7);
+  opacity: 0.92;
+}
+
+.hero-3d__pane--glass {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.03) 45%, rgba(170, 205, 228, 0.14));
+  box-shadow:
+    inset 2px 0 0 rgba(255, 255, 255, 0.35),
+    inset 0 2px 0 rgba(255, 255, 255, 0.2),
+    0 40px 70px -35px rgba(0, 0, 0, 0.6);
+}
+
+.hero-3d__pane--front {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.04) 40%, rgba(170, 205, 228, 0.18));
+}
+
+/* Specular highlight that slides across the glass with the pointer and on scroll */
+.hero-3d__glare {
+  position: absolute;
+  inset: -20% -70%;
+  background: linear-gradient(105deg, transparent 42%, rgba(255, 255, 255, 0.34) 50%, transparent 58%);
+  transform: translateX(calc(var(--hero-mx, 0) * 26% + var(--hero-p, 0) * 45%));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-3d__float {
+    animation: hero-float 7s ease-in-out infinite;
+  }
+
+  .hero-3d__pane {
+    animation: hero-pane-in 1.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: var(--d, 0s);
+  }
+
+  /* Hero copy lifts and fades as the page scrolls; the photo drifts and scales behind it */
+  .hero-content {
+    transform: translate3d(0, calc(var(--hero-p, 0) * -56px), 0);
+    opacity: calc(1 - var(--hero-p, 0) * 1.15);
+  }
+
+  .hero-bg {
+    transform: translate3d(0, calc(var(--hero-p, 0) * 80px), 0) scale(calc(1.06 + var(--hero-p, 0) * 0.08));
+    will-change: transform;
+  }
+
+  .hero-rise {
+    animation: hero-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  /* Scroll reveal: .js-reveal is set on <html> by useScrollReveal once IntersectionObserver is available,
+     so content is never hidden without it. */
+  .js-reveal [data-reveal] {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0);
+    transition:
+      opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .js-reveal [data-reveal].is-revealed {
+    opacity: 1;
+    transform: none;
+  }
+
+  .modal-rise {
+    animation: hero-rise 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+
+@keyframes hero-float {
+  0%, 100% { transform: translate3d(0, -8px, 0); }
+  50% { transform: translate3d(0, 10px, 0); }
+}
+
+@keyframes hero-pane-in {
+  from { opacity: 0; transform: translate3d(70px, 50px, -420px) rotateY(28deg); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes hero-rise {
+  from { opacity: 0; transform: translate3d(0, 26px, 0); }
+  to { opacity: 1; transform: none; }
+}

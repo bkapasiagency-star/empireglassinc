@@ -6,7 +6,7 @@ import { ArchitecturalImage } from './ArchitecturalImage';
 export const AboutSection: React.FC = () => {
   return (
     <section id="about" className="py-24 section-glass text-[#111315] relative border-b border-[#DDE2E4]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-reveal>
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
@@ -14,7 +14,7 @@ export const AboutSection: React.FC = () => {
           <div className="lg:col-span-6 relative">
             <div className="relative rounded-2xl overflow-hidden border border-[#DDE2E4] shadow-xl">
               <ArchitecturalImage
-                src="https://images.unsplash.com/photo-1541888946425-d0fbb18f15f9?auto=format&fit=crop&w=1200&q=80"
+                src="https://images.unsplash.com/photo-1654105727849-1b9d39357f16?auto=format&fit=crop&w=1200&q=80"
                 alt="Empire Glass Commercial Glazing Work"
                 aspectRatio="aspect-[4/3]"
                 overlayText="Greensboro Glazing Operations"

@@ -4,7 +4,7 @@ import { WORKFLOW_STEPS } from '../data/company';
 export const ProcessSection: React.FC = () => {
   return (
     <section id="process" className="py-24 section-dark text-white relative border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-reveal>
         
         {/* Section Header */}
         <div className="max-w-3xl mb-16">

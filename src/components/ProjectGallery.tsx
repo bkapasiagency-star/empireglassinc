@@ -31,7 +31,7 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onOpenQuoteModal
 
   return (
     <section id="our-work" className="py-24 section-clear text-[#111315] relative border-b border-[#DDE2E4]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-reveal>
         
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-[#DDE2E4] gap-6">

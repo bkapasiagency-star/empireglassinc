@@ -5,7 +5,7 @@ import { Check, ShieldCheck } from 'lucide-react';
 export const WhyEmpireSection: React.FC = () => {
   return (
     <section className="py-24 section-dark text-white relative border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-reveal>
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           

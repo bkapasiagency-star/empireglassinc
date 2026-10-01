@@ -5,7 +5,7 @@ import { MapPin, Navigation, Compass } from 'lucide-react';
 export const ServiceAreaSection: React.FC = () => {
   return (
     <section className="py-20 section-clear text-[#111315] relative border-b border-[#DDE2E4]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-reveal>
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           

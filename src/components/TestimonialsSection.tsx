@@ -15,7 +15,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onOpen
 
   return (
     <section id="reviews" className="py-24 section-glass text-[#111315] relative border-b border-[#DDE2E4]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-reveal>
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 pb-6 border-b border-[#DDE2E4] gap-6">

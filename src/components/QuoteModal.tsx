@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { COMPANY_INFO } from '../data/company';
+import { QUOTE_SERVICE_OPTIONS, sectorForService } from '../data/services';
 import { X, Phone, Send, CheckCircle, Paperclip } from 'lucide-react';
 
 interface QuoteModalProps {
@@ -15,7 +16,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, initial
     company: '',
     phone: '',
     email: '',
-    serviceNeeded: initialService || 'Curtain Wall Systems',
+    serviceNeeded: initialService || 'Curtain Walls',
     projectLocation: '',
     projectDetails: '',
     fileName: ''
@@ -28,6 +29,8 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, initial
   useEffect(() => {
     if (initialService) {
       setFormData(prev => ({ ...prev, serviceNeeded: initialService }));
+      const sector = sectorForService(initialService);
+      if (sector) setProjectType(sector);
     }
   }, [initialService]);
 
@@ -49,25 +52,11 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, initial
 
   if (!isOpen) return null;
 
-  const commercialServices = [
-    'Curtain Wall Systems',
-    'Storefront Systems',
-    'Unitized Curtain Wall',
-    'Window Wall Systems',
-    'Radius / Curved Glass Walls',
-    'ACM Panels & Metal Cladding',
-    'Commercial Entrance Doors',
-    'Other Commercial Glazing'
-  ];
-
-  const residentialServices = [
-    'Frameless Shower Enclosures',
-    'Architectural Windows & Doors',
-    'Fixed & Retractable Skylights',
-    'Custom Residential Glass & Railings',
-    'Glass Replacement / Renovation',
-    'Other Residential Glass'
-  ];
+  // The current value is kept selectable even when it is not a catalogue item (e.g. a portfolio project title)
+  const baseServices = QUOTE_SERVICE_OPTIONS[projectType];
+  const serviceOptions = baseServices.includes(formData.serviceNeeded)
+    ? baseServices
+    : [formData.serviceNeeded, ...baseServices];
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
@@ -180,7 +169,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, initial
                     type="button"
                     onClick={() => {
                       setProjectType('commercial');
-                      setFormData(prev => ({ ...prev, serviceNeeded: commercialServices[0] }));
+                      setFormData(prev => ({ ...prev, serviceNeeded: QUOTE_SERVICE_OPTIONS.commercial[0] }));
                     }}
                     className={`py-2 px-3 rounded-lg text-xs font-bold tracking-wide uppercase transition-all cursor-pointer border ${
                       projectType === 'commercial'
@@ -194,7 +183,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, initial
                     type="button"
                     onClick={() => {
                       setProjectType('residential');
-                      setFormData(prev => ({ ...prev, serviceNeeded: residentialServices[0] }));
+                      setFormData(prev => ({ ...prev, serviceNeeded: QUOTE_SERVICE_OPTIONS.residential[0] }));
                     }}
                     className={`py-2 px-3 rounded-lg text-xs font-bold tracking-wide uppercase transition-all cursor-pointer border ${
                       projectType === 'residential'
@@ -290,7 +279,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, initial
                     onChange={(e) => setFormData({ ...formData, serviceNeeded: e.target.value })}
                     className="w-full bg-[#FFFFFF] border border-[#DDE2E4] rounded-lg px-3 py-2 text-xs text-[#111315] focus:outline-none focus:border-[#527187]"
                   >
-                    {(projectType === 'commercial' ? commercialServices : residentialServices).map((s) => (
+                    {serviceOptions.map((s) => (
                       <option key={s} value={s}>{s}</option>
                     ))}
                   </select>

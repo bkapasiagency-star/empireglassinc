@@ -14,7 +14,7 @@ const CAPABILITY_ICONS = [
 export const CapabilitiesSection: React.FC = () => {
   return (
     <section id="capabilities" className="py-24 section-dark text-white relative border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-reveal>
         
         {/* Header */}
         <div className="max-w-3xl mb-16">

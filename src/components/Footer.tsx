@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { COMPANY_INFO } from '../data/company';
+import { OFFERING_CATEGORIES } from '../data/services';
 import { Phone, MapPin, Linkedin, Clock, ShieldCheck, X } from 'lucide-react';
 
 export const Footer: React.FC = () => {
@@ -56,29 +57,24 @@ export const Footer: React.FC = () => {
           {/* Commercial Glass Links */}
           <div className="lg:col-span-3 space-y-3">
             <div className="text-xs font-bold uppercase tracking-wider text-white">
-              Commercial Systems
+              Commercial Glass
             </div>
             <ul className="space-y-2 text-xs text-[#DDE2E4]">
-              <li><a href="#commercial" className="hover:text-white transition-colors">Curtain Wall Systems</a></li>
-              <li><a href="#commercial" className="hover:text-white transition-colors">Storefront Systems &amp; Entrances</a></li>
-              <li><a href="#commercial" className="hover:text-white transition-colors">Unitized Curtain Walls</a></li>
-              <li><a href="#commercial" className="hover:text-white transition-colors">Window Wall Systems</a></li>
-              <li><a href="#commercial" className="hover:text-white transition-colors">Radius &amp; Curved Glass Walls</a></li>
-              <li><a href="#commercial" className="hover:text-white transition-colors">ACM Metal Cladding Panels</a></li>
+              {OFFERING_CATEGORIES[0].items.map((item) => (
+                <li key={item.id}><a href="#commercial" className="hover:text-white transition-colors">{item.name}</a></li>
+              ))}
             </ul>
           </div>
 
-          {/* Residential Glass Links */}
+          {/* Residential, Shower & Product Links */}
           <div className="lg:col-span-2 space-y-3">
             <div className="text-xs font-bold uppercase tracking-wider text-white">
-              Residential Glazing
+              Residential &amp; Products
             </div>
             <ul className="space-y-2 text-xs text-[#DDE2E4]">
-              <li><a href="#residential" className="hover:text-white transition-colors">Frameless Showers</a></li>
-              <li><a href="#residential" className="hover:text-white transition-colors">High-Efficiency Windows</a></li>
-              <li><a href="#residential" className="hover:text-white transition-colors">Sliding &amp; Multi-Slide Doors</a></li>
-              <li><a href="#residential" className="hover:text-white transition-colors">Fixed &amp; Motorized Skylights</a></li>
-              <li><a href="#residential" className="hover:text-white transition-colors">Glass Railings &amp; Partitions</a></li>
+              {OFFERING_CATEGORIES.slice(1).map((category) => (
+                <li key={category.id}><a href={`#${category.id}`} className="hover:text-white transition-colors">{category.navLabel}</a></li>
+              ))}
             </ul>
           </div>
 
