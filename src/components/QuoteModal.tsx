@@ -133,7 +133,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, initial
                 className="btn-steel inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold uppercase tracking-wider rounded-lg transition-colors"
               >
                 <Phone className="w-3.5 h-3.5 text-white" />
-                <span>Call {COMPANY_INFO.phoneDisplay}</span>
+                <span>Call<span className="hidden sm:inline"> {COMPANY_INFO.phoneDisplay}</span></span>
               </a>
               <button
                 onClick={onClose}

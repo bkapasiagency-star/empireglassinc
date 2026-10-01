@@ -139,7 +139,7 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ initialService, init
                 className="btn-steel inline-flex items-center gap-2 px-6 py-3.5 text-xs font-bold uppercase tracking-wider rounded-lg transition-all shadow-lg cursor-pointer"
               >
                 <Phone className="w-4 h-4 text-white" />
-                <span>Call {COMPANY_INFO.phoneDisplay}</span>
+                <span>Call<span className="hidden sm:inline"> {COMPANY_INFO.phoneDisplay}</span></span>
               </a>
 
               <a

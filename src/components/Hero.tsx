@@ -118,10 +118,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
         <div className="max-w-3xl">
           
           {/* Location & Scope Unboxed Kicker */}
-          <div style={rise(0.05)} className="hero-rise inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-[#DDE2E4]/20 text-xs font-semibold tracking-wider mb-6 backdrop-blur-xs">
+          <div style={rise(0.05)} className="hero-rise inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-white/5 border border-[#DDE2E4]/20 text-[10px] sm:text-xs font-semibold sm:tracking-wider whitespace-nowrap max-w-full mb-6 backdrop-blur-xs">
             <span className="text-[#DDE2E4] font-bold flex items-center gap-1.5">
               <MapPin className="w-3.5 h-3.5 text-[#527187]" />
-              Greensboro, North Carolina
+              Greensboro, <span className="sm:hidden">NC</span><span className="hidden sm:inline">North Carolina</span>
             </span>
             <span aria-hidden="true" className="text-[#7B8388]">·</span>
             <span className="text-[#DDE2E4]">Commercial &amp; Residential Glazing</span>
@@ -150,10 +150,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
 
             <a
               href={`tel:${COMPANY_INFO.phoneRaw}`}
+              aria-label={`Call ${COMPANY_INFO.phoneDisplay}`}
               className="btn-secondary-dark inline-flex items-center justify-center gap-2 px-6 py-4 text-xs font-semibold tracking-wider uppercase rounded shadow-md"
             >
               <Phone className="w-4 h-4 text-[#527187]" />
-              <span>Call {COMPANY_INFO.phoneDisplay}</span>
+              <span>Call<span className="hidden sm:inline"> {COMPANY_INFO.phoneDisplay}</span></span>
             </a>
           </div>
 

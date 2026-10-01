@@ -15,10 +15,11 @@ export const MobileStickyBar: React.FC<MobileStickyBarProps> = ({ onOpenQuoteMod
       <div className="grid grid-cols-2 gap-3 max-w-md mx-auto">
         <a
           href={`tel:${COMPANY_INFO.phoneRaw}`}
+          aria-label={`Call ${COMPANY_INFO.phoneDisplay}`}
           className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-[#161a1d] border border-[#DDE2E4]/25 text-white font-bold text-xs uppercase tracking-wide active:scale-95 transition-transform"
         >
           <Phone className="w-3.5 h-3.5 text-[#527187]" />
-          <span>Call {COMPANY_INFO.phoneDisplay}</span>
+          <span>Call</span>
         </a>
 
         <button

@@ -244,10 +244,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal, onSelectOfferi
           <div className="pt-3 flex flex-col gap-3">
             <a
               href={`tel:${COMPANY_INFO.phoneRaw}`}
+              aria-label={`Call ${COMPANY_INFO.phoneDisplay}`}
               className="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded border border-[#DDE2E4]/25 bg-[#161a1d] text-sm font-semibold text-white"
             >
               <Phone className="w-4 h-4 text-[#527187]" />
-              <span>Call {COMPANY_INFO.phoneDisplay}</span>
+              <span>Call<span className="hidden sm:inline"> {COMPANY_INFO.phoneDisplay}</span></span>
             </a>
 
             <button
