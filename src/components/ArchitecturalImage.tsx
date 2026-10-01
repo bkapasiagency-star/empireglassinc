@@ -7,6 +7,10 @@ interface ArchitecturalImageProps {
   aspectRatio?: string;
   overlayText?: string;
   wrapperClassName?: string;
+  srcSet?: string;
+  sizes?: string;
+  /** Above-the-fold image: load eagerly at high priority instead of lazily */
+  priority?: boolean;
 }
 
 export const ArchitecturalImage: React.FC<ArchitecturalImageProps> = ({
@@ -15,7 +19,10 @@ export const ArchitecturalImage: React.FC<ArchitecturalImageProps> = ({
   className = "w-full h-full object-cover",
   aspectRatio,
   overlayText,
-  wrapperClassName = ''
+  wrapperClassName = '',
+  srcSet,
+  sizes,
+  priority = false
 }) => {
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -61,8 +68,11 @@ export const ArchitecturalImage: React.FC<ArchitecturalImageProps> = ({
       )}
       <img
         src={src}
+        srcSet={srcSet}
+        sizes={sizes}
         alt={alt}
-        loading="lazy"
+        loading={priority ? 'eager' : 'lazy'}
+        fetchPriority={priority ? 'high' : 'auto'}
         decoding="async"
         referrerPolicy="no-referrer"
         onLoad={() => setIsLoading(false)}

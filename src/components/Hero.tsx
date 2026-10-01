@@ -7,27 +7,27 @@ interface HeroProps {
   onOpenQuoteModal: (initialService?: string) => void;
 }
 
+const HERO_IMAGE = 'https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&q=85';
+
 export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
   return (
     <section className="relative min-h-[92vh] flex flex-col justify-between pt-32 pb-12 overflow-hidden bg-[#111315] text-white">
-      {/* Background Architectural Hero Image: colour-boosted, with blue scrims kept light enough for the glass to show */}
+      {/* Background Architectural Hero Image: natural colour, served up to 4K, with neutral scrims for legibility */}
       <div className="absolute inset-0 z-0">
         <ArchitecturalImage
-          src="https://images.unsplash.com/photo-1464938050520-ef2270bb8ce8?auto=format&fit=crop&w=2000&q=85"
+          src={`${HERO_IMAGE}&w=2560`}
+          srcSet={[1280, 1920, 2560, 3840].map((w) => `${HERO_IMAGE}&w=${w} ${w}w`).join(', ')}
+          sizes="100vw"
+          priority
           alt="Modern Commercial Glass Architecture Curtain Wall"
-          className="w-full h-full object-cover object-right scale-105 transform saturate-[1.7] contrast-[1.08] motion-safe:animate-subtle-zoom"
+          className="w-full h-full object-cover object-[70%_65%]"
           wrapperClassName="h-full"
           overlayText="Empire Glass Architectural Systems"
         />
-        {/* Left-weighted navy scrim for headline legibility; right side stays open */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#071A2E]/90 via-[#0B2C4D]/55 to-transparent" />
-        {/* Blue-to-cyan colour wash so the hazy sky and glass read as blue, not grey */}
-        <div className="absolute inset-0 mix-blend-overlay bg-gradient-to-br from-[#1D4ED8]/70 via-[#0EA5E9]/55 to-[#22D3EE]/60" />
-        {/* Sky-blue and cyan light over the glass */}
-        <div className="absolute inset-0 mix-blend-screen bg-[radial-gradient(60rem_40rem_at_85%_15%,rgba(56,189,248,0.35),transparent_62%),radial-gradient(48rem_32rem_at_60%_90%,rgba(59,130,246,0.28),transparent_60%)]" />
+        {/* Left-weighted charcoal scrim for headline legibility; right side stays open */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D0F]/90 via-[#0B0D0F]/55 to-transparent" />
         {/* Top fade for the header, bottom fade into the trust strip */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#111315] via-transparent to-[#071A2E]/60" />
-        <div className="absolute inset-0 architectural-grid-dark opacity-20 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#111315] via-transparent to-[#0B0D0F]/55" />
       </div>
 
       {/* Main Content Area */}
