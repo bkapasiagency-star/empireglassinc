@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { GALLERY_PROJECTS, ProjectItem } from '../data/company';
 import { ArchitecturalImage } from './ArchitecturalImage';
 import { Eye, ArrowUpRight, X, MapPin, Check } from 'lucide-react';
+import { SectionBackdrop } from './SectionBackdrop';
 
 interface ProjectGalleryProps {
   onOpenQuoteModal: (initialService?: string) => void;
@@ -31,6 +32,7 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onOpenQuoteModal
 
   return (
     <section id="our-work" className="py-24 section-clear text-[#111315] relative border-b border-[#DDE2E4]">
+      <SectionBackdrop image="1479292889369-1a48f234247e" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-reveal>
         
         {/* Header */}

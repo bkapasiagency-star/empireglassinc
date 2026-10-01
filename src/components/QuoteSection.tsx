@@ -3,6 +3,7 @@ import { COMPANY_INFO } from '../data/company';
 import { QUOTE_SERVICE_OPTIONS, sectorForService } from '../data/services';
 import { Phone, Send, CheckCircle, MapPin, Clock, Paperclip } from 'lucide-react';
 import { ArchitecturalImage } from './ArchitecturalImage';
+import { SectionBackdrop } from './SectionBackdrop';
 
 interface QuoteSectionProps {
   initialService?: string;
@@ -104,6 +105,7 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ initialService, init
 
   return (
     <section id="contact" className="py-24 section-clear text-[#111315] relative">
+      <SectionBackdrop image="1654105727849-1b9d39357f16" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-reveal>
         
         {/* Closing Banner / Pre-Form Statement (Deep Charcoal Dark Section) */}

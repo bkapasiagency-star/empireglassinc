@@ -1,6 +1,7 @@
 import React from 'react';
 import { CAPABILITIES } from '../data/company';
 import { Hammer, Truck, Shield, Grid, Sliders, Wrench } from 'lucide-react';
+import { SectionBackdrop } from './SectionBackdrop';
 
 const CAPABILITY_ICONS = [
   <Hammer key="hammer" className="w-5 h-5 text-[#8DB3CC]" />,
@@ -14,6 +15,7 @@ const CAPABILITY_ICONS = [
 export const CapabilitiesSection: React.FC = () => {
   return (
     <section id="capabilities" className="py-24 section-dark text-white relative border-b border-white/10">
+      <SectionBackdrop image="1613244288805-020d7d11c655" tone="dark" flip />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-reveal>
         
         {/* Header */}

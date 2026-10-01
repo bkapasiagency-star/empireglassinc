@@ -1,10 +1,12 @@
 import React from 'react';
 import { TRUST_PILLARS } from '../data/company';
 import { Check, ShieldCheck } from 'lucide-react';
+import { SectionBackdrop } from './SectionBackdrop';
 
 export const WhyEmpireSection: React.FC = () => {
   return (
     <section className="py-24 section-dark text-white relative border-b border-white/10">
+      <SectionBackdrop image="1690357737506-62301532da89" tone="dark" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-reveal>
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">

@@ -2,10 +2,12 @@ import React from 'react';
 import { COMPANY_INFO } from '../data/company';
 import { MapPin, Phone, Linkedin, Building2, UserCheck } from 'lucide-react';
 import { ArchitecturalImage } from './ArchitecturalImage';
+import { SectionBackdrop } from './SectionBackdrop';
 
 export const AboutSection: React.FC = () => {
   return (
     <section id="about" className="py-24 section-glass text-[#111315] relative border-b border-[#DDE2E4]">
+      <SectionBackdrop image="1641787354718-46774dd8f94a" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-reveal>
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">

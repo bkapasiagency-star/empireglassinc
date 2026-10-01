@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, Calculator, CheckCircle2 } from 'lucide-react';
+import { SectionBackdrop } from './SectionBackdrop';
 
 interface QuoteEstimatorProps {
   onSelectScope: (details: {
@@ -51,6 +52,7 @@ export const QuoteEstimator: React.FC<QuoteEstimatorProps> = ({ onSelectScope })
 
   return (
     <section className="py-20 section-glass text-[#111315] relative border-b border-[#DDE2E4]">
+      <SectionBackdrop image="1523477593243-78bbf626fd3b" flip />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-reveal>
         
         {/* Main Pure White Card Container */}

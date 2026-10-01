@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TESTIMONIALS } from '../data/company';
 import { Quote, Building2, Home, MapPin, ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { SectionBackdrop } from './SectionBackdrop';
 
 interface TestimonialsSectionProps {
   onOpenQuoteModal: (initialService?: string) => void;
@@ -15,6 +16,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onOpen
 
   return (
     <section id="reviews" className="py-24 section-glass text-[#111315] relative border-b border-[#DDE2E4]">
+      <SectionBackdrop image="1481026469463-66327c86e544" flip />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-reveal>
         
         {/* Section Header */}

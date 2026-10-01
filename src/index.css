@@ -361,3 +361,116 @@
   from { opacity: 0; transform: translate3d(0, 26px, 0); }
   to { opacity: 1; transform: none; }
 }
+
+/* ------------------------------------------------------------------
+   Section backdrops (SectionBackdrop.tsx): an architectural glass photo pinned to the
+   viewport and seen through the box of each section, so the image holds still while the
+   section scrolls over it. clip-path (not overflow) does the clipping so the fixed
+   photo stays inside its own section.
+   ------------------------------------------------------------------ */
+.section-glass {
+  isolation: isolate;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  clip-path: inset(0);
+  pointer-events: none;
+}
+
+.backdrop__photo {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+  transform: scale(calc(1.1 + var(--sp, 0) * 0.05));
+}
+
+/* The photo is only mounted while its section is near the viewport */
+.backdrop:not(.is-near) .backdrop__photo {
+  display: none;
+}
+
+.backdrop--dark .backdrop__photo {
+  opacity: 0.38;
+}
+
+/* Wash keeps the side that carries the heading calm and lets the photo read on the other */
+.backdrop__wash {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, rgba(246, 250, 253, 0.93) 0%, rgba(246, 250, 253, 0.62) 50%, rgba(246, 250, 253, 0.18) 100%);
+}
+
+.backdrop--flip .backdrop__wash {
+  background: linear-gradient(260deg, rgba(246, 250, 253, 0.93) 0%, rgba(246, 250, 253, 0.62) 50%, rgba(246, 250, 253, 0.18) 100%);
+}
+
+.backdrop--dark .backdrop__wash {
+  background: linear-gradient(100deg, rgba(13, 19, 24, 0.95) 0%, rgba(13, 19, 24, 0.72) 50%, rgba(13, 19, 24, 0.4) 100%);
+}
+
+.backdrop--dark.backdrop--flip .backdrop__wash {
+  background: linear-gradient(260deg, rgba(13, 19, 24, 0.95) 0%, rgba(13, 19, 24, 0.72) 50%, rgba(13, 19, 24, 0.4) 100%);
+}
+
+/* Glass panes that drift past at their own speeds */
+.backdrop__pane {
+  position: absolute;
+  border: 1px solid rgba(82, 113, 135, 0.38);
+  border-radius: 3px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.06) 55%, rgba(170, 205, 228, 0.22));
+  box-shadow:
+    inset 2px 2px 0 rgba(255, 255, 255, 0.65),
+    0 30px 60px -30px rgba(17, 19, 21, 0.3);
+  transform: translate3d(0, calc(var(--sp, 0) * var(--drift)), 0) rotate(var(--tilt));
+  will-change: transform;
+}
+
+.backdrop--dark .backdrop__pane {
+  border-color: rgba(255, 255, 255, 0.24);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.02) 55%, rgba(141, 179, 204, 0.1));
+  box-shadow:
+    inset 2px 2px 0 rgba(255, 255, 255, 0.18),
+    0 30px 60px -30px rgba(0, 0, 0, 0.6);
+}
+
+.backdrop__pane--a {
+  top: 9%;
+  right: 4%;
+  width: clamp(110px, 15vw, 230px);
+  aspect-ratio: 3 / 4;
+  --tilt: 9deg;
+  --drift: -130px;
+}
+
+.backdrop__pane--b {
+  bottom: 7%;
+  left: 2%;
+  width: clamp(90px, 11vw, 170px);
+  aspect-ratio: 3 / 4;
+  --tilt: -11deg;
+  --drift: -230px;
+}
+
+.backdrop--flip .backdrop__pane--a {
+  right: auto;
+  left: 4%;
+  --tilt: -9deg;
+}
+
+.backdrop--flip .backdrop__pane--b {
+  left: auto;
+  right: 2%;
+  --tilt: 11deg;
+}
+
+@media (max-width: 767px) {
+  .backdrop__pane--b {
+    display: none;
+  }
+}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FAQ_ITEMS } from '../data/company';
 import { ChevronDown, HelpCircle } from 'lucide-react';
+import { SectionBackdrop } from './SectionBackdrop';
 
 export const FaqSection: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -11,6 +12,7 @@ export const FaqSection: React.FC = () => {
 
   return (
     <section className="py-20 section-dark text-white relative border-b border-white/10">
+      <SectionBackdrop image="1717565813196-8944b57877f8" tone="dark" />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8" data-reveal>
         
         <div className="text-center mb-14">

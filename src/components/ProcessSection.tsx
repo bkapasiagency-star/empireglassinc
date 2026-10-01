@@ -1,9 +1,11 @@
 import React from 'react';
 import { WORKFLOW_STEPS } from '../data/company';
+import { SectionBackdrop } from './SectionBackdrop';
 
 export const ProcessSection: React.FC = () => {
   return (
     <section id="process" className="py-24 section-dark text-white relative border-b border-white/10">
+      <SectionBackdrop image="1555945071-f36c590968bb" tone="dark" flip />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-reveal>
         
         {/* Section Header */}

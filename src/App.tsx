@@ -18,6 +18,7 @@ import { QuoteModal } from './components/QuoteModal';
 import { MobileStickyBar } from './components/MobileStickyBar';
 import { findOffering } from './data/services';
 import { useScrollReveal } from './hooks/useScrollReveal';
+import { useBackdropParallax } from './hooks/useBackdropParallax';
 
 export function App() {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
@@ -47,6 +48,7 @@ export function App() {
   const closeOfferingDetail = useCallback(() => setActiveOfferingId(null), []);
 
   useScrollReveal();
+  useBackdropParallax();
 
   const handleScopeConfigured = (scope: {
     type: 'commercial' | 'residential';

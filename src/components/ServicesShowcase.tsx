@@ -10,6 +10,7 @@ import {
   offeringSrcSet
 } from '../data/services';
 import { ArchitecturalImage } from './ArchitecturalImage';
+import { SectionBackdrop } from './SectionBackdrop';
 
 interface ServicesShowcaseProps {
   onSelectOffering: (id: string) => void;
@@ -177,6 +178,7 @@ export const ServicesShowcase: React.FC<ServicesShowcaseProps> = ({ onSelectOffe
     <>
       {/* INTRO: what Empire Glass does, with an index of the five categories */}
       <section id="services" className="scroll-mt-16 py-20 sm:py-24 section-dark text-white relative border-b border-white/10">
+        <SectionBackdrop image="1725913496276-47d7147da99f" tone="dark" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end">
             <div className="lg:col-span-7" data-reveal>
@@ -217,6 +219,7 @@ export const ServicesShowcase: React.FC<ServicesShowcaseProps> = ({ onSelectOffe
 
       {/* A. COMMERCIAL GLASS: three featured systems, then the rest of the range */}
       <section id="commercial" className="scroll-mt-16 py-24 section-glass text-[#111315] relative border-b border-[#DDE2E4]">
+        <SectionBackdrop image="1525119488448-d549af0dc221" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <CategoryHeader data={commercial} onOpenQuoteModal={onOpenQuoteModal} />
 
@@ -257,6 +260,7 @@ export const ServicesShowcase: React.FC<ServicesShowcaseProps> = ({ onSelectOffe
 
       {/* B. RESIDENTIAL GLASS: one large architectural image beside the service grid */}
       <section id="residential" className="scroll-mt-16 py-24 section-clear text-[#111315] relative border-b border-[#DDE2E4]">
+        <SectionBackdrop image="1490351267196-b7a67e26e41b" flip />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <CategoryHeader data={residential} onOpenQuoteModal={onOpenQuoteModal} />
 
@@ -298,6 +302,7 @@ export const ServicesShowcase: React.FC<ServicesShowcaseProps> = ({ onSelectOffe
 
       {/* C. SHOWER ENCLOSURES: wide feature image, then four tall image cards */}
       <section id="shower-enclosures" className="scroll-mt-16 py-24 section-dark text-white relative border-b border-white/10">
+        <SectionBackdrop image="1486406146926-c627a92ad1ab" tone="dark" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <CategoryHeader data={showers} dark onOpenQuoteModal={onOpenQuoteModal} />
 
@@ -341,6 +346,7 @@ export const ServicesShowcase: React.FC<ServicesShowcaseProps> = ({ onSelectOffe
 
       {/* D. GLASS PRODUCTS: clean product cards */}
       <section id="glass-products" className="scroll-mt-16 py-24 section-clear text-[#111315] relative border-b border-[#DDE2E4]">
+        <SectionBackdrop image="1483094035713-218a81c0d971" flip />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <CategoryHeader data={glass} onOpenQuoteModal={onOpenQuoteModal} />
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5">
@@ -359,6 +365,7 @@ export const ServicesShowcase: React.FC<ServicesShowcaseProps> = ({ onSelectOffe
 
       {/* E. ALUMINUM FRAMES: same cards with a drawing-sheet treatment */}
       <section id="aluminum-frames" className="scroll-mt-16 py-24 section-glass text-[#111315] relative border-b border-[#DDE2E4]">
+        <SectionBackdrop image="1469981283837-561b3779462f" />
         <div className="absolute inset-0 architectural-grid-steel opacity-60 pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <CategoryHeader data={frames} onOpenQuoteModal={onOpenQuoteModal} />
