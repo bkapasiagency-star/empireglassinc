@@ -10,18 +10,24 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
   return (
     <section className="relative min-h-[92vh] flex flex-col justify-between pt-32 pb-12 overflow-hidden bg-[#111315] text-white">
-      {/* Background Architectural Hero Image with Multi-layer Scrim */}
+      {/* Background Architectural Hero Image: colour-boosted, with blue scrims kept light enough for the glass to show */}
       <div className="absolute inset-0 z-0">
         <ArchitecturalImage
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=85"
+          src="https://images.unsplash.com/photo-1464938050520-ef2270bb8ce8?auto=format&fit=crop&w=2000&q=85"
           alt="Modern Commercial Glass Architecture Curtain Wall"
-          className="w-full h-full object-cover scale-105 transform motion-safe:animate-subtle-zoom"
+          className="w-full h-full object-cover object-right scale-105 transform saturate-[1.7] contrast-[1.08] motion-safe:animate-subtle-zoom"
+          wrapperClassName="h-full"
           overlayText="Empire Glass Architectural Systems"
         />
-        {/* Scrims in Deep Charcoal (#111315) */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#111315]/95 via-[#111315]/85 to-[#111315]/60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#111315] via-transparent to-[#111315]/75" />
-        <div className="absolute inset-0 architectural-grid-dark opacity-35 pointer-events-none" />
+        {/* Left-weighted navy scrim for headline legibility; right side stays open */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#071A2E]/90 via-[#0B2C4D]/55 to-transparent" />
+        {/* Blue-to-cyan colour wash so the hazy sky and glass read as blue, not grey */}
+        <div className="absolute inset-0 mix-blend-overlay bg-gradient-to-br from-[#1D4ED8]/70 via-[#0EA5E9]/55 to-[#22D3EE]/60" />
+        {/* Sky-blue and cyan light over the glass */}
+        <div className="absolute inset-0 mix-blend-screen bg-[radial-gradient(60rem_40rem_at_85%_15%,rgba(56,189,248,0.35),transparent_62%),radial-gradient(48rem_32rem_at_60%_90%,rgba(59,130,246,0.28),transparent_60%)]" />
+        {/* Top fade for the header, bottom fade into the trust strip */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#111315] via-transparent to-[#071A2E]/60" />
+        <div className="absolute inset-0 architectural-grid-dark opacity-20 pointer-events-none" />
       </div>
 
       {/* Main Content Area */}

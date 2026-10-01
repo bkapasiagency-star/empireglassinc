@@ -6,6 +6,7 @@ interface ArchitecturalImageProps {
   className?: string;
   aspectRatio?: string;
   overlayText?: string;
+  wrapperClassName?: string;
 }
 
 export const ArchitecturalImage: React.FC<ArchitecturalImageProps> = ({
@@ -13,7 +14,8 @@ export const ArchitecturalImage: React.FC<ArchitecturalImageProps> = ({
   alt,
   className = "w-full h-full object-cover",
   aspectRatio,
-  overlayText
+  overlayText,
+  wrapperClassName = ''
 }) => {
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -51,7 +53,7 @@ export const ArchitecturalImage: React.FC<ArchitecturalImageProps> = ({
   }
 
   return (
-    <div className={`relative overflow-hidden bg-slate-900 ${aspectRatio || ''}`}>
+    <div className={`relative overflow-hidden bg-slate-900 ${aspectRatio || ''} ${wrapperClassName}`}>
       {isLoading && (
         <div className="absolute inset-0 bg-slate-900/60 animate-pulse flex items-center justify-center z-10">
           <div className="w-6 h-6 border-2 border-slate-600 border-t-slate-300 rounded-full animate-spin" />
