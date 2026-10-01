@@ -176,3 +176,42 @@
   -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 70%);
   mask-image: linear-gradient(180deg, #000 0%, transparent 70%);
 }
+
+/* Dark: deep navy-charcoal band with blue light from the corners and a faint grid; breaks up the run of light sections */
+.section-dark {
+  isolation: isolate;
+  background-color: #0E1519;
+  background-image:
+    radial-gradient(56rem 30rem at 10% 0%, rgba(82, 140, 190, 0.26), transparent 62%),
+    radial-gradient(48rem 28rem at 100% 100%, rgba(82, 140, 190, 0.18), transparent 60%),
+    linear-gradient(180deg, #0D171E 0%, #111315 100%);
+}
+
+.section-dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(221, 226, 228, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(221, 226, 228, 0.05) 1px, transparent 1px);
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 75%);
+  mask-image: linear-gradient(180deg, #000 0%, transparent 75%);
+}
+
+/* Translucent glass cards for .section-dark */
+.card-glass-dark {
+  background-color: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(221, 226, 228, 0.14);
+  box-shadow: 0 10px 32px -10px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.card-glass-dark:hover {
+  background-color: rgba(255, 255, 255, 0.07);
+  border-color: rgba(141, 179, 204, 0.6);
+  transform: translateY(-2px);
+}
