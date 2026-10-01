@@ -3,7 +3,7 @@ import { WORKFLOW_STEPS } from '../data/company';
 
 export const ProcessSection: React.FC = () => {
   return (
-    <section id="process" className="py-24 bg-[#F5F4F0] text-[#111315] relative border-b border-[#DDE2E4]">
+    <section id="process" className="py-24 section-clear text-[#111315] relative border-b border-[#DDE2E4]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

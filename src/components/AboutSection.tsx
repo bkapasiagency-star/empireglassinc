@@ -5,7 +5,7 @@ import { ArchitecturalImage } from './ArchitecturalImage';
 
 export const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="py-24 bg-[#F5F4F0] text-[#111315] relative border-b border-[#DDE2E4]">
+    <section id="about" className="py-24 section-glass text-[#111315] relative border-b border-[#DDE2E4]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -54,7 +54,7 @@ export const AboutSection: React.FC = () => {
             <div className="p-6 rounded-xl bg-[#FFFFFF] border border-[#DDE2E4] space-y-4 shadow-sm">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-[#F5F4F0] border border-[#DDE2E4] flex items-center justify-center text-[#527187]">
+                  <div className="w-10 h-10 rounded-lg bg-[#F1F5F8] border border-[#DDE2E4] flex items-center justify-center text-[#527187]">
                     <UserCheck className="w-5 h-5" />
                   </div>
                   <div>
@@ -67,7 +67,7 @@ export const AboutSection: React.FC = () => {
                   href={COMPANY_INFO.socials.linkedinPresident}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-xs text-[#7B8388] hover:text-[#527187] transition-colors p-2 rounded-lg hover:bg-[#F5F4F0]"
+                  className="flex items-center gap-1.5 text-xs text-[#7B8388] hover:text-[#527187] transition-colors p-2 rounded-lg hover:bg-[#F1F5F8]"
                   aria-label="Jose Portillo LinkedIn"
                 >
                   <Linkedin className="w-4 h-4 text-[#527187]" />

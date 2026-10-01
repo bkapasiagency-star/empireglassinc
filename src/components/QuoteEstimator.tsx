@@ -50,7 +50,7 @@ export const QuoteEstimator: React.FC<QuoteEstimatorProps> = ({ onSelectScope })
   };
 
   return (
-    <section className="py-20 bg-[#F5F4F0] text-[#111315] relative border-b border-[#DDE2E4]">
+    <section className="py-20 section-glass text-[#111315] relative border-b border-[#DDE2E4]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Pure White Card Container */}
@@ -168,7 +168,7 @@ export const QuoteEstimator: React.FC<QuoteEstimatorProps> = ({ onSelectScope })
             </div>
 
             {/* Live Scope Summary Card (Pure White with Light Steel Border) */}
-            <div className="lg:col-span-4 bg-[#F5F4F0] rounded-xl p-6 border border-[#DDE2E4] shadow-sm space-y-5">
+            <div className="lg:col-span-4 bg-[#F1F5F8] rounded-xl p-6 border border-[#DDE2E4] shadow-sm space-y-5">
               <div className="border-b border-[#DDE2E4] pb-4">
                 <div className="text-[11px] font-bold text-[#527187] uppercase tracking-widest">
                   Live Scope Summary

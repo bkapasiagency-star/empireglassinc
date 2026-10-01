@@ -110,7 +110,7 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ initialService, init
   };
 
   return (
-    <section id="contact" className="py-24 bg-[#F5F4F0] text-[#111315] relative">
+    <section id="contact" className="py-24 section-clear text-[#111315] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Closing Banner / Pre-Form Statement (Deep Charcoal Dark Section) */}
@@ -174,7 +174,7 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ initialService, init
 
             <div className="space-y-4 pt-2">
               <div className="bg-[#FFFFFF] p-5 rounded-xl border border-[#DDE2E4] flex items-start gap-3.5 shadow-sm">
-                <div className="p-2.5 rounded-lg bg-[#F5F4F0] text-[#527187] border border-[#DDE2E4]">
+                <div className="p-2.5 rounded-lg bg-[#F1F5F8] text-[#527187] border border-[#DDE2E4]">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
@@ -190,7 +190,7 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ initialService, init
               </div>
 
               <div className="bg-[#FFFFFF] p-5 rounded-xl border border-[#DDE2E4] flex items-start gap-3.5 shadow-sm">
-                <div className="p-2.5 rounded-lg bg-[#F5F4F0] text-[#527187] border border-[#DDE2E4]">
+                <div className="p-2.5 rounded-lg bg-[#F1F5F8] text-[#527187] border border-[#DDE2E4]">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
@@ -203,7 +203,7 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ initialService, init
               </div>
 
               <div className="bg-[#FFFFFF] p-5 rounded-xl border border-[#DDE2E4] flex items-start gap-3.5 shadow-sm">
-                <div className="p-2.5 rounded-lg bg-[#F5F4F0] text-[#527187] border border-[#DDE2E4]">
+                <div className="p-2.5 rounded-lg bg-[#F1F5F8] text-[#527187] border border-[#DDE2E4]">
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
@@ -439,7 +439,7 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ initialService, init
                     <label className="block text-xs font-medium text-[#111315] mb-1">
                       Attach Plans / Blueprints (Optional)
                     </label>
-                    <label className="flex items-center justify-between p-3 rounded-lg bg-[#F5F4F0] border border-dashed border-[#DDE2E4] hover:border-[#527187] cursor-pointer transition-colors">
+                    <label className="flex items-center justify-between p-3 rounded-lg bg-[#F1F5F8] border border-dashed border-[#DDE2E4] hover:border-[#527187] cursor-pointer transition-colors">
                       <div className="flex items-center gap-2 text-xs text-[#7B8388]">
                         <Paperclip className="w-4 h-4 text-[#527187]" />
                         <span>{formData.fileName ? formData.fileName : 'Upload PDF blueprints, drawings, or photos (up to 25MB)'}</span>

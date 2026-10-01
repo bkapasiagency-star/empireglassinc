@@ -121,7 +121,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, initial
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 text-[#7B8388] hover:text-[#111315] bg-[#F5F4F0] rounded-full transition-colors cursor-pointer"
+          className="absolute top-4 right-4 p-2 text-[#7B8388] hover:text-[#111315] bg-[#F1F5F8] rounded-full transition-colors cursor-pointer"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
@@ -331,7 +331,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, initial
 
               {/* Attach File */}
               <div>
-                <label className="flex items-center justify-between p-2.5 rounded-lg bg-[#F5F4F0] border border-dashed border-[#DDE2E4] hover:border-[#527187] cursor-pointer">
+                <label className="flex items-center justify-between p-2.5 rounded-lg bg-[#F1F5F8] border border-dashed border-[#DDE2E4] hover:border-[#527187] cursor-pointer">
                   <div className="flex items-center gap-2 text-xs text-[#7B8388]">
                     <Paperclip className="w-3.5 h-3.5 text-[#527187]" />
                     <span className="truncate max-w-xs">{formData.fileName || 'Attach Blueprints / Drawings (PDF, DWG)'}</span>

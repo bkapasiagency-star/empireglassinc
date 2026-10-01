@@ -30,7 +30,7 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onOpenQuoteModal
       );
 
   return (
-    <section id="our-work" className="py-24 bg-[#F5F4F0] text-[#111315] relative border-b border-[#DDE2E4]">
+    <section id="our-work" className="py-24 section-clear text-[#111315] relative border-b border-[#DDE2E4]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
@@ -56,7 +56,7 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onOpenQuoteModal
                 className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all cursor-pointer whitespace-nowrap ${
                   selectedFilter === cat
                     ? 'btn-steel shadow-xs'
-                    : 'text-[#7B8388] hover:text-[#111315] hover:bg-[#F5F4F0]'
+                    : 'text-[#7B8388] hover:text-[#111315] hover:bg-[#F1F5F8]'
                 }`}
               >
                 {cat}
@@ -87,7 +87,7 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onOpenQuoteModal
 
                 <button
                   onClick={() => setActiveProject(project)}
-                  className="absolute bottom-3 right-3 bg-[#FFFFFF] hover:bg-[#F5F4F0] text-[#111315] p-2 rounded-full border border-[#DDE2E4] shadow-md cursor-pointer transition-transform hover:scale-110"
+                  className="absolute bottom-3 right-3 bg-[#FFFFFF] hover:bg-[#F1F5F8] text-[#111315] p-2 rounded-full border border-[#DDE2E4] shadow-md cursor-pointer transition-transform hover:scale-110"
                   aria-label={`View details of ${project.title}`}
                 >
                   <Eye className="w-4 h-4 text-[#527187]" />
@@ -141,7 +141,7 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onOpenQuoteModal
               <X className="w-4 h-4" />
             </button>
 
-            <div className="relative aspect-video w-full overflow-hidden bg-[#F5F4F0]">
+            <div className="relative aspect-video w-full overflow-hidden bg-[#F1F5F8]">
               <ArchitecturalImage
                 src={activeProject.image}
                 alt={activeProject.title}
@@ -165,7 +165,7 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onOpenQuoteModal
                 {activeProject.description}
               </p>
 
-              <div className="bg-[#F5F4F0] rounded-lg p-4 border border-[#DDE2E4] space-y-2">
+              <div className="bg-[#F1F5F8] rounded-lg p-4 border border-[#DDE2E4] space-y-2">
                 <div className="text-xs font-bold uppercase tracking-wider text-[#527187]">
                   Project Scope &amp; Engineering:
                 </div>

@@ -13,7 +13,7 @@ const CAPABILITY_ICONS = [
 
 export const CapabilitiesSection: React.FC = () => {
   return (
-    <section id="capabilities" className="py-24 bg-[#F5F4F0] text-[#111315] relative border-b border-[#DDE2E4]">
+    <section id="capabilities" className="py-24 section-glass text-[#111315] relative border-b border-[#DDE2E4]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
@@ -38,7 +38,7 @@ export const CapabilitiesSection: React.FC = () => {
             >
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <div className="p-2.5 rounded-lg bg-[#F5F4F0] border border-[#DDE2E4] inline-flex shadow-xs">
+                  <div className="p-2.5 rounded-lg bg-[#F1F5F8] border border-[#DDE2E4] inline-flex shadow-xs">
                     {CAPABILITY_ICONS[index % CAPABILITY_ICONS.length]}
                   </div>
                   <span className="text-[11px] font-bold tracking-wider text-[#527187] uppercase">

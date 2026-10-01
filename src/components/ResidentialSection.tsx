@@ -13,7 +13,7 @@ export const ResidentialSection: React.FC<ResidentialSectionProps> = ({ onOpenQu
   const currentService = RESIDENTIAL_SERVICES.find(s => s.id === activeTab) || RESIDENTIAL_SERVICES[0];
 
   return (
-    <section id="residential" className="py-24 bg-[#F5F4F0] text-[#111315] relative border-b border-[#DDE2E4]">
+    <section id="residential" className="py-24 section-clear text-[#111315] relative border-b border-[#DDE2E4]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -41,7 +41,7 @@ export const ResidentialSection: React.FC<ResidentialSectionProps> = ({ onOpenQu
               className={`px-4 py-2.5 rounded-lg text-xs font-semibold tracking-wide transition-all cursor-pointer ${
                 activeTab === service.id
                   ? 'btn-steel shadow-md'
-                  : 'text-[#111315] hover:text-[#527187] bg-[#FFFFFF] hover:bg-[#F5F4F0] border border-[#DDE2E4] shadow-xs'
+                  : 'text-[#111315] hover:text-[#527187] bg-[#FFFFFF] hover:bg-[#F1F5F8] border border-[#DDE2E4] shadow-xs'
               }`}
             >
               {service.title}

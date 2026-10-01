@@ -48,7 +48,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F4F0] text-[#111315] flex flex-col font-sans selection:bg-[#527187]/20 selection:text-[#111315]">
+    <div className="min-h-screen bg-[#F1F5F8] text-[#111315] flex flex-col font-sans selection:bg-[#527187]/20 selection:text-[#111315]">
       {/* Sticky Header with Deep Charcoal background */}
       <Header onOpenQuoteModal={handleOpenQuoteModal} />
 
@@ -57,7 +57,7 @@ export function App() {
         {/* 1. Hero & Trust Strip (Deep Charcoal #111315) */}
         <Hero onOpenQuoteModal={handleOpenQuoteModal} />
 
-        {/* 2. Commercial Glass Systems (Warm White #F5F4F0 & Pure White #FFFFFF Cards) */}
+        {/* 2. Commercial Glass Systems (Warm White #F1F5F8 & Pure White #FFFFFF Cards) */}
         <CommercialSection onOpenQuoteModal={handleOpenQuoteModal} />
 
         {/* 3. Residential Glazing */}

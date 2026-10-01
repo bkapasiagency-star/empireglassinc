@@ -11,7 +11,7 @@ export const CommercialSection: React.FC<CommercialSectionProps> = ({ onOpenQuot
   const [selectedService, setSelectedService] = useState<ServiceItem>(COMMERCIAL_SERVICES[0]);
 
   return (
-    <section id="commercial" className="py-24 bg-[#F5F4F0] text-[#111315] relative border-b border-[#DDE2E4] overflow-hidden">
+    <section id="commercial" className="py-24 section-glass text-[#111315] relative border-b border-[#DDE2E4] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}

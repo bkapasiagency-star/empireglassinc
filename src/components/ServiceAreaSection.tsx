@@ -4,7 +4,7 @@ import { MapPin, Navigation, Compass } from 'lucide-react';
 
 export const ServiceAreaSection: React.FC = () => {
   return (
-    <section className="py-20 bg-[#F5F4F0] text-[#111315] relative border-b border-[#DDE2E4]">
+    <section className="py-20 section-clear text-[#111315] relative border-b border-[#DDE2E4]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
@@ -69,13 +69,13 @@ export const ServiceAreaSection: React.FC = () => {
                 </p>
 
                 <div className="flex flex-wrap justify-center gap-2 text-xs">
-                  <span className="px-3 py-1 rounded-full bg-[#F5F4F0] border border-[#DDE2E4] text-[#111315] font-semibold">
+                  <span className="px-3 py-1 rounded-full bg-[#F1F5F8] border border-[#DDE2E4] text-[#111315] font-semibold">
                     Guilford County
                   </span>
-                  <span className="px-3 py-1 rounded-full bg-[#F5F4F0] border border-[#DDE2E4] text-[#111315] font-semibold">
+                  <span className="px-3 py-1 rounded-full bg-[#F1F5F8] border border-[#DDE2E4] text-[#111315] font-semibold">
                     Forsyth County
                   </span>
-                  <span className="px-3 py-1 rounded-full bg-[#F5F4F0] border border-[#DDE2E4] text-[#111315] font-semibold">
+                  <span className="px-3 py-1 rounded-full bg-[#F1F5F8] border border-[#DDE2E4] text-[#111315] font-semibold">
                     Alamance County
                   </span>
                 </div>
