@@ -99,7 +99,8 @@ export const Footer: React.FC = () => {
         {/* Bottom Legal & Copyright Bar */}
         <div className="mt-14 pt-8 border-t border-[#DDE2E4]/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#7B8388]">
           <div>
-            &copy; 2026 {COMPANY_INFO.legalName} All rights reserved.
+            &copy; 2026 {COMPANY_INFO.legalName} All rights reserved. Website concept by{' '}
+            <a href="https://trades.magolabs.in/work/empireglassinc/" target="_blank" rel="noopener" className="underline underline-offset-2 hover:text-white">Mago Labs</a>
           </div>
 
           <div className="flex items-center gap-2.5 sm:gap-6 text-[11px] sm:text-xs whitespace-nowrap">
